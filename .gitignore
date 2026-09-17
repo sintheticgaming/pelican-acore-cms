@@ -11,3 +11,6 @@ tmp/
 
 .idea/
 .vscode/
+
+*.save
+*.save.*
