@@ -111,7 +111,6 @@ Example:
     WORDPRESS_MULTISITE=true
     WORDPRESS_MULTISITE_USE_SUBDOMAINS=false
 
-Do not include real passwords in your egg JSON or Git repository.
 
 ## WordPress Multisite
 
