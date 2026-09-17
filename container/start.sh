@@ -4,6 +4,8 @@
 set -euo pipefail
 
 WORDPRESS_DIR="${WORDPRESS_DIR:-/home/container/wordpress}"
+SERVER_DIR="${SERVER_DIR:-/home/container}"
+REDIS_DIR="${REDIS_DIR:-${SERVER_DIR}/redis}"
 : "${SERVER_PORT:=8080}"
 
 : "${WORDPRESS_DB_HOST:?WORDPRESS_DB_HOST is required}"
@@ -149,7 +151,13 @@ handle_signal() {
 trap handle_signal SIGTERM SIGINT SIGQUIT
 
 echo "Starting Redis..."
-redis-server --daemonize no &
+redis-server \
+    --bind 127.0.0.1 \
+    --protected-mode yes \
+    --port 6379 \
+    --dir "$REDIS_DIR" \
+    --dbfilename dump.rdb \
+    --daemonize no &
 REDIS_PID=$!
 
 echo "Starting PHP-FPM..."
