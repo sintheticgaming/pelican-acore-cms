@@ -46,6 +46,8 @@ RUN apt-get update -y \
         libicu-dev \
         libgmp-dev \
     && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*    
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 ARG COMPOSER_VERSION=2.10.3
@@ -140,12 +142,6 @@ RUN rm -f /etc/nginx/sites-enabled/default \
     && chown -R www-data:www-data /home/container
 
 EXPOSE 8080
-
-HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
-    CMD curl -fsS "http://127.0.0.1:${SERVER_PORT:-8080}/healthz" >/dev/null \
-        && nc -z 127.0.0.1 9000 \
-        && test "$(redis-cli -h 127.0.0.1 ping)" = "PONG" \
-        || exit 1
 
 STOPSIGNAL SIGTERM
 

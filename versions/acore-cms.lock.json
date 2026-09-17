@@ -9,6 +9,19 @@
     "base_image": "wordpress:6.8-php8.3-fpm",
     "base_image_digest": "sha256:906c25725c2edccb7809851f61f98560ea73b6c01d482d69d1b9fdf04b5ff75f"
   },
+  "toolchain": {
+    "composer": {
+    "version": "2.10.3",
+    "sha256": "7a2d379d5b8ffdaa028580ef26494c36d2feef4b178d3dd1473a4dbc5e17c8d6"
+  },
+  "wp_cli": {
+    "version": "2.12.0",
+    "sha256": "ce34ddd838f7351d6759068d09793f26755463b4a4610a5a5c0a97b68220d85c"
+  },
+   "php_redis": {
+    "version": "6.3.0"
+}
+},
   "acore_cms": {
     "repository": "https://github.com/azerothcore/acore-cms.git",
     "commit": "cac98762374784b4c2ae0d817f5744ab6b5d5bd5",
