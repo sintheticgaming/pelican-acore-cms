@@ -453,6 +453,6 @@ ACore-CMS upstream:
 
 ## License
 
-This project is intended to remain compatible with the licensing requirements of the upstream ACore-CMS project.
+This project is licensed under the GNU Affero General Public License v3.0 or later (`AGPL-3.0-or-later`).
 
-See the repository license and upstream project licenses for details.
+It includes and integrates software from third-party projects with their own licenses. See the upstream projects and bundled components for their respective licensing terms.
