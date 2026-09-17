@@ -1,0 +1,220 @@
+{
+  "_comment": "DO NOT EDIT: FILE GENERATED FOR PELICAN PANEL",
+  "meta": {
+    "version": "PLCN_v3",
+    "update_url": null
+  },
+  "exported_at": "2026-09-17T00:00:00+00:00",
+  "name": "ACore-CMS",
+  "author": "sintheticgaming@users.noreply.github.com",
+  "uuid": "6e25607f-2b2f-4ed4-9de5-22be9e3ac001",
+  "description": "WordPress-based ACore-CMS for AzerothCore. Includes nginx, PHP-FPM, Redis, pinned ACore-CMS sources, and tested dependency plugins.",
+  "image": null,
+  "tags": [
+    "azerothcore",
+    "wordpress",
+    "cms"
+  ],
+  "features": [],
+  "docker_images": {
+    "ACore-CMS": "ghcr.io/sintheticgaming/pelican-acore-cms:dev"
+  },
+  "file_denylist": [],
+  "startup_commands": {
+    "Default": "/usr/local/bin/pelican-start.sh"
+  },
+  "config": {
+    "files": "{}",
+    "startup": "{\n  \"done\": \"All services started.\",\n  \"userInteraction\": []\n}",
+    "logs": "{}",
+    "stop": "^SIGTERM"
+  },
+  "scripts": {
+    "installation": {
+      "script": null,
+      "container": "alpine:3.22",
+      "entrypoint": "ash"
+    }
+  },
+  "variables": [
+    {
+      "name": "WordPress Database Host",
+      "description": "Hostname or IP address of the external WordPress MySQL/MariaDB server.",
+      "env_variable": "WORDPRESS_DB_HOST",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:255"
+      ],
+      "field_type": "text",
+      "sort": 1
+    },
+    {
+      "name": "WordPress Database Port",
+      "description": "Port used by the external WordPress database server.",
+      "env_variable": "WORDPRESS_DB_PORT",
+      "default_value": "3306",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "integer",
+        "between:1,65535"
+      ],
+      "field_type": "text",
+      "sort": 2
+    },
+    {
+      "name": "WordPress Database Name",
+      "description": "Database used by WordPress.",
+      "env_variable": "WORDPRESS_DB_NAME",
+      "default_value": "acore_cms",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:64"
+      ],
+      "field_type": "text",
+      "sort": 3
+    },
+    {
+      "name": "WordPress Database User",
+      "description": "Database user used by WordPress.",
+      "env_variable": "WORDPRESS_DB_USER",
+      "default_value": "acore_cms",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:64"
+      ],
+      "field_type": "text",
+      "sort": 4
+    },
+    {
+      "name": "WordPress Database Password",
+      "description": "Password for the WordPress database user.",
+      "env_variable": "WORDPRESS_DB_PASSWORD",
+      "default_value": "",
+      "user_viewable": false,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:255"
+      ],
+      "field_type": "password",
+      "sort": 5
+    },
+    {
+      "name": "WordPress URL",
+      "description": "Public URL used to access the CMS. Include http:// or https:// and the port when required.",
+      "env_variable": "WORDPRESS_URL",
+      "default_value": "",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "url",
+        "max:255"
+      ],
+      "field_type": "text",
+      "sort": 6
+    },
+    {
+      "name": "Site Title",
+      "description": "Initial WordPress site title.",
+      "env_variable": "WORDPRESS_TITLE",
+      "default_value": "ACoreCMS",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:255"
+      ],
+      "field_type": "text",
+      "sort": 7
+    },
+    {
+      "name": "WordPress Admin User",
+      "description": "Initial WordPress administrator username.",
+      "env_variable": "WORDPRESS_ADMIN_USER",
+      "default_value": "admin",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "max:60"
+      ],
+      "field_type": "text",
+      "sort": 8
+    },
+    {
+      "name": "WordPress Admin Password",
+      "description": "Initial WordPress administrator password.",
+      "env_variable": "WORDPRESS_ADMIN_PASSWORD",
+      "default_value": "",
+      "user_viewable": false,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "string",
+        "min:8",
+        "max:255"
+      ],
+      "field_type": "password",
+      "sort": 9
+    },
+    {
+      "name": "WordPress Admin Email",
+      "description": "Initial WordPress administrator email address.",
+      "env_variable": "WORDPRESS_ADMIN_EMAIL",
+      "default_value": "admin@example.com",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "email",
+        "max:255"
+      ],
+      "field_type": "text",
+      "sort": 10
+    },
+    {
+      "name": "Enable Multisite",
+      "description": "Enable WordPress Multisite during the initial installation.",
+      "env_variable": "WORDPRESS_MULTISITE",
+      "default_value": "true",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "in:true,false"
+      ],
+      "field_type": "text",
+      "sort": 11
+    },
+    {
+      "name": "Use Multisite Subdomains",
+      "description": "Use subdomain-based WordPress Multisite instead of subdirectory-based multisite.",
+      "env_variable": "WORDPRESS_MULTISITE_USE_SUBDOMAINS",
+      "default_value": "false",
+      "user_viewable": true,
+      "user_editable": true,
+      "rules": [
+        "required",
+        "in:true,false"
+      ],
+      "field_type": "text",
+      "sort": 12
+    }
+  ]
+}

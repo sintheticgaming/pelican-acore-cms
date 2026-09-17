@@ -98,6 +98,7 @@ RUN mkdir -p /opt/acore-cms/plugins \
     && echo "${WORDPRESS_IMPORTER_SHA256}  /opt/acore-cms/plugins/wordpress-importer-${WORDPRESS_IMPORTER_VERSION}.zip" | sha256sum -c -
 
 COPY container/nginx.conf /etc/nginx/pelican.conf.template
+COPY container/nginx-main.conf /etc/nginx/pelican-main.conf
 
 COPY --chmod=755 \
     container/entrypoint.sh \

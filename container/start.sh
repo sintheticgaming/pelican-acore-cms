@@ -115,10 +115,20 @@ fi
 echo "Applying custom plugin/theme initialization..."
 /usr/local/bin/pelican-custom-init.sh
 
+NGINX_CONF_DIR="${SERVER_DIR}/conf/nginx"
+
+mkdir -p \
+    "$NGINX_CONF_DIR" \
+    "$NGINX_CONF_DIR/client_body" \
+    "$NGINX_CONF_DIR/proxy" \
+    "$NGINX_CONF_DIR/fastcgi" \
+    "$NGINX_CONF_DIR/uwsgi" \
+    "$NGINX_CONF_DIR/scgi"
+
 echo "Configuring nginx to listen on port ${SERVER_PORT}..."
 sed "s/__SERVER_PORT__/${SERVER_PORT}/g" \
     /etc/nginx/pelican.conf.template \
-    > /etc/nginx/conf.d/default.conf
+    > "${NGINX_CONF_DIR}/server.conf"
 
 REDIS_PID=""
 PHP_FPM_PID=""
@@ -165,7 +175,7 @@ php-fpm -F &
 PHP_FPM_PID=$!
 
 echo "Starting nginx..."
-nginx -g 'daemon off;' &
+nginx -c /etc/nginx/pelican-main.conf -g 'daemon off;' &
 NGINX_PID=$!
 
 echo "All services started."

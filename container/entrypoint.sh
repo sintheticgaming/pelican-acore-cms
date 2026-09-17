@@ -31,6 +31,7 @@ rm -rf "$ACORE_PLUGIN_DEST"
 
 cp -a "$ACORE_PLUGIN_SOURCE" "$ACORE_PLUGIN_DEST"
 
-chown -R www-data:www-data "$WORDPRESS_DIR"
+echo "Runtime identity:"
+id
 
 exec "$@"
