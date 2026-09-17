@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "tested": {
+    "date": "2026-09-16",
+    "wrapper_image_id": "sha256:3272a842288d6e160c46748f9e204b269fb478a28392f5c7c7fe3deafbf7442d"
+  },
+  "wordpress": {
+    "version": "6.8.3",
+    "base_image": "wordpress:6.8-php8.3-fpm",
+    "base_image_digest": "sha256:906c25725c2edccb7809851f61f98560ea73b6c01d482d69d1b9fdf04b5ff75f"
+  },
+  "acore_cms": {
+    "repository": "https://github.com/azerothcore/acore-cms.git",
+    "commit": "cac98762374784b4c2ae0d817f5744ab6b5d5bd5",
+    "plugin_version": "0.1"
+  },
+"plugins": {
+  "woocommerce": {
+    "version": "10.7.0",
+    "sha256": "3c3d72be3a2b7fe4b26d34c09c572f6bc0b230d2b69b968307fca41aaeef8bee"
+  },
+  "wp-graphql": {
+    "version": "2.23.0",
+    "sha256": "27b706aa480c926eb16c537843e179da494154da6f0aaf7a4dd28edad70f1403"
+  },
+  "wpgraphql-acf": {
+    "version": "3.0.0",
+    "sha256": "a9f9ddaf892c691745a6ac38a12a4c81ded89ba91f04069cf228bb6554ee580b"
+  },
+  "mycred": {
+    "version": "3.2.6",
+    "sha256": "13ce9ef2cab18e92cc0485702f63a11e1c732a1be291c2b57f9822f8286f5609"
+  },
+  "advanced-custom-fields": {
+    "version": "6.8.10",
+    "sha256": "92d51a8f1d839f60aee4efb6a9cd269b37d1599a9fb44d03f792352dfe34c744"
+  },
+  "wordpress-importer": {
+    "version": "0.9.6",
+    "sha256": "85cfad65e24eb3b25ed536f52ce52c3971bd42a852d6f2c6a5bea8c5c429c323"
+  }
+}
+}
